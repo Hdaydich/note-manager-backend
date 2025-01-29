@@ -42,7 +42,7 @@ app.use((error,req,res,next)=>{
     res.json({message:error.message||'An unknoun error occurred!'});
    });
 
-   mongoose.connect(process.env.MONGO_ATLAS_URL).then(()=>{
+   mongoose.connect(`mongodb+srv://admin:admin@cluster0.wa8hr.mongodb.net/notes?retryWrites=true&w=majority&appName=Cluster0`).then(()=>{
 
    app.listen(process.env.PORT || 5000);
 
