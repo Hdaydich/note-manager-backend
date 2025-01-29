@@ -2,6 +2,8 @@
     "env": {
         "DB_USER":"admin",
         "DB_PWD":"admin",
-        "DB_NAME":"notes"
+        "DB_NAME":"notes",     
+        "MONGO_ATLAS_URL":"mongodb+srv://admin:admin@cluster0.wa8hr.mongodb.net/notes?retryWrites=true&w=majority&appName=Cluster0"
+    
     }
 }
