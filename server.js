@@ -12,7 +12,7 @@ const app=express();
 
 app.use(bodyParser.json());
 
-// app.use(express.static(path.join('public')));
+app.use(express.static(path.join('public')));
 
 app.use((req,res,next)=>{
 
@@ -28,9 +28,9 @@ app.use((req,res,next)=>{
 app.use('/api/notes',notesRoutes);
 app.use('/api/users',usersRoutes);
 
-// app.use((req,res,nex)=>{
-//    res.sendFile(path.resolve(__dirname,'public','index.html'));
-// });
+app.use((req,res,nex)=>{
+   res.sendFile(path.resolve(__dirname,'public','index.html'));
+});
 
 
 
@@ -42,7 +42,7 @@ app.use((error,req,res,next)=>{
     res.json({message:error.message||'An unknoun error occurred!'});
    });
 
-   mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@cluster0.wa8hr.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`).then(()=>{
+   mongoose.connect(`mongodb+srv://admin:admin@cluster0.wa8hr.mongodb.net/notes?retryWrites=true&w=majority&appName=Cluster0`).then(()=>{
 
    app.listen(process.env.PORT || 5000);
 
